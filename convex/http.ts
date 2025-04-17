@@ -44,7 +44,7 @@ http.route({
     if (eventType == "user.created") {
       const { id, email_addresses, first_name, last_name, image_url } = event.data;
 
-      const email = email_addresses[0].email_addresses;
+      const email = email_addresses[0].email_address;
       const name = `${first_name || ""} ${last_name || ""}`.trim();
 
       try {
@@ -65,3 +65,5 @@ http.route({
     return new Response("Webhook processed successfully", { status: 200 });
   }),
 });
+
+export default http;
